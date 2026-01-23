@@ -408,12 +408,9 @@
     <!-- PRICING SECTION CSS -->
     <style>
       .pricing-card {
+        background-color: hwb(0 100% 0%);
         padding: 40px 32px;
-        border-right: 1px solid #e5e7eb;
-      }
-
-      .pricing-card:last-child {
-        border-right: none;
+        border-radius: 20px;
       }
 
       .pricing-card h3 {
@@ -463,40 +460,161 @@
       }
     </style>
 
-    <!-- TESTIMONIAL SECTION CSS -->
+    <!-- STEPS SECTION CSS -->
     <style>
-      .testimonial-track {
-        position: relative;
-        min-height: 320px;
-      }
-
-      .testimonial-slide {
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      .testimonial-slide.is-active {
-        opacity: 1;
-        pointer-events: auto;
-      }
-
-      .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 9999px;
-        background: #d1d5db;
+      .icon-box {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: #f4f7f4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
         transition: all 0.3s ease;
       }
 
-      .dot:hover {
-        background: #a1f26d;
-        transform: scale(1.3);
+      .step-item:hover .icon-box {
+        background: #a3f36b;
+        transform: scale(1.1);
       }
 
-      .dot.is-active {
+      .step-title {
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .step-desc {
+        font-size: 14px;
+        color: #6b7280;
+        margin-top: 4px;
+        max-width: 420px;
+      }
+    </style>
+
+    <!-- FAQ SECTION CSS -->
+    <style>
+      .faq-card {
+        width: 220px;
+        height: 160px;
+        perspective: 1200px;
+      }
+
+      .faq-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.6s ease;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      .faq-card:hover .faq-inner,
+      .faq-card:active .faq-inner {
+        transform: rotateY(180deg) rotateZ(0deg);
+      }
+
+      .faq-front,
+      .faq-back {
+        position: absolute;
+        inset: 0;
+        backface-visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        font-weight: 600;
+        border-radius: 20px;
+      }
+
+      .faq-back {
+        transform: rotateY(180deg);
+        font-weight: 400;
+      }
+
+      /* ROTATIONS */
+      .rotate-left {
+        transform: rotate(-12deg);
+      }
+      .rotate-mid {
+        transform: rotate(-6deg);
+      }
+      .rotate-right {
+        transform: rotate(8deg);
+      }
+      .rotate-none {
+        transform: rotate(0deg);
+      }
+
+      /* COLORS */
+      .light-card .faq-inner {
+        background: #e4e9e2;
+      }
+      .green-card .faq-inner {
+        background: #a3f36b;
+      }
+      .soft-card .faq-inner {
+        background: #f0f7ea;
+      }
+      .dark-card .faq-inner {
+        background: #062c1b;
+      }
+      .white-card .faq-inner {
+        background: #ffffff;
+        border: 1px solid #eee;
+      }
+
+      /* Mobile tap improvement */
+      @media (max-width: 768px) {
+        .faq-card {
+          width: 90%;
+        }
+      }
+    </style>
+
+    <!-- BLOG SECTION CSS -->
+    <style>
+      .blog-viewport {
+        overflow: hidden;
+      }
+
+      .blog-infinite-track {
+        display: flex;
+        gap: 24px;
+        will-change: transform;
+      }
+
+      .blog-card {
+        min-width: 340px;
+        background: #fff;
+        border-radius: 20px;
+        padding: 16px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        transition: transform 0.4s ease;
+      }
+
+      .blog-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .blog-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 14px;
+      }
+
+      .nav-btn {
         background: #a1f26d;
+        padding: 12px 20px;
+        border-radius: 999px;
+        transition: transform 0.3s ease;
+      }
+
+      .nav-btn:hover {
+        transform: scale(1.05);
       }
     </style>
   </head>
@@ -645,7 +763,7 @@
       <!-- HOME -->
       <main id="home" class="relative overflow-hidden max-w-7xl mx-auto px-3">
         <div
-          class="pt-16 flex flex-col items-center justify-center bg-primary/20 rounded-4xl"
+          class="pt-20 flex flex-col items-center justify-center bg-primary/20 rounded-4xl"
         >
           <div class="max-w-7xl mx-auto px-4 py-20 text-center hero-wrap">
             <!-- Heading -->
@@ -1049,135 +1167,79 @@
 
       <!-- INFINITE SCROLL SECTION -->
 
-      <!-- TESTIMONIAL SECTION -->
-      <section class="testimonial-section py-24 bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6">
-          <div
-            class="testimonial-wrapper relative rounded-[40px] border border-gray-200 p-14 lg:p-20"
+      <!-- STEPS SECTION -->
+      <section class="py-24 px-3 md:px-6 lg:px-12 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+          <!-- Heading -->
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-16 leading-tight steps-title"
           >
-            <div class="testimonial-slider">
-              <div class="testimonial-track">
-                <!-- SLIDE -->
-                <div class="testimonial-slide is-active">
-                  <div
-                    class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
-                  >
-                    <!-- LEFT -->
-                    <div class="testimonial-content">
-                      <i
-                        class="fa-solid fa-quote-left text-primary text-6xl mb-8"
-                      ></i>
+            Simple steps to get seamless <br />
+            and secure transactions
+          </h2>
 
-                      <p
-                        class="testimonial-text text-gray-600 text-lg leading-relaxed max-w-xl"
-                      >
-                        This payment gateway offers excellent fraud protection.
-                        We’ve noticed a significant drop in chargebacks. This
-                        seamless and fast!
-                      </p>
-                    </div>
-
-                    <!-- RIGHT -->
-                    <div class="testimonial-media relative flex justify-end">
-                      <img
-                        src="your-image.png"
-                        class="testimonial-image max-w-md w-full object-contain"
-                      />
-
-                      <div
-                        class="testimonial-author absolute bottom-2 right-0 text-right"
-                      >
-                        <h4 class="font-semibold text-lg">Joanna Prohaska</h4>
-                        <p class="text-gray-500 text-sm">
-                          Lead Solutions Designer
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+          <!-- Content -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <!-- LEFT -->
+            <div class="space-y-6 steps-list">
+              <!-- Step -->
+              <div class="step-item flex items-center gap-4 pb-6 border-b">
+                <div class="icon-box bg-lime-200">
+                  <i class="fa-solid fa-globe"></i>
                 </div>
-
-                <!-- DUPLICATE SLIDES (same structure) -->
-                <div class="testimonial-slide">
-                  <div
-                    class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
-                  >
-                    <!-- LEFT -->
-                    <div class="testimonial-content">
-                      <i
-                        class="fa-solid fa-quote-left text-primary text-6xl mb-8"
-                      ></i>
-
-                      <p
-                        class="testimonial-text text-gray-600 text-lg leading-relaxed max-w-xl"
-                      >
-                        This payment gateway offers excellent fraud protection.
-                        We’ve noticed a significant drop in chargebacks. This
-                        seamless and fast!
-                      </p>
-                    </div>
-
-                    <!-- RIGHT -->
-                    <div class="testimonial-media relative flex justify-end">
-                      <img
-                        src="your-image.png"
-                        class="testimonial-image max-w-md w-full object-contain"
-                      />
-
-                      <div
-                        class="testimonial-author absolute bottom-2 right-0 text-right"
-                      >
-                        <h4 class="font-semibold text-lg">Joanna Prohaska</h4>
-                        <p class="text-gray-500 text-sm">
-                          Lead Solutions Designer
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial-slide">
-                  <div
-                    class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
-                  >
-                    <!-- LEFT -->
-                    <div class="testimonial-content">
-                      <i
-                        class="fa-solid fa-quote-left text-primary text-6xl mb-8"
-                      ></i>
-
-                      <p
-                        class="testimonial-text text-gray-600 text-lg leading-relaxed max-w-xl"
-                      >
-                        This payment gateway offers excellent fraud protection.
-                        We’ve noticed a significant drop in chargebacks. This
-                        seamless and fast!
-                      </p>
-                    </div>
-
-                    <!-- RIGHT -->
-                    <div class="testimonial-media relative flex justify-end">
-                      <img
-                        src="your-image.png"
-                        class="testimonial-image max-w-md w-full object-contain"
-                      />
-
-                      <div
-                        class="testimonial-author absolute bottom-2 right-0 text-right"
-                      >
-                        <h4 class="font-semibold text-lg">Joanna Prohaska</h4>
-                        <p class="text-gray-500 text-sm">
-                          Lead Solutions Designer
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                <div>
+                  <h4 class="step-title">Download App / Visit Website</h4>
+                  <p class="step-desc">
+                    Visit our website or Download the Wallet app to enjoy
+                    seamless and secure financial transactions on the go.
+                  </p>
                 </div>
               </div>
 
-              <!-- DOTS -->
-              <div class="testimonial-dots flex gap-3 justify-center mt-12">
-                <button class="dot is-active"></button>
-                <button class="dot"></button>
-                <button class="dot"></button>
+              <div class="step-item flex items-center gap-4 pb-6 border-b">
+                <div class="icon-box">
+                  <i class="fa-regular fa-id-card"></i>
+                </div>
+                <div>
+                  <h4 class="step-title">Register your account</h4>
+                </div>
+              </div>
+
+              <div class="step-item flex items-center gap-4 pb-6 border-b">
+                <div class="icon-box">
+                  <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <div>
+                  <h4 class="step-title">Choose your plan</h4>
+                </div>
+              </div>
+
+              <div class="step-item flex items-center gap-4 pb-6 border-b">
+                <div class="icon-box">
+                  <i class="fa-solid fa-paper-plane"></i>
+                </div>
+                <div>
+                  <h4 class="step-title">Set and track payment</h4>
+                </div>
+              </div>
+
+              <div class="step-item flex items-center gap-4">
+                <div class="icon-box">
+                  <i class="fa-regular fa-circle-check"></i>
+                </div>
+                <div>
+                  <h4 class="step-title">Enjoy your automate payment</h4>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="relative right-box-wrapper">
+              <div
+                class="green-box bg-primary w-full flex items-center justify-center rounded-3xl md:h-125"
+              >
+                <!-- IMAGE GOES HERE -->
+                <img src="./src/assets/mobile.webp" alt="" />
               </div>
             </div>
           </div>
@@ -1189,7 +1251,7 @@
         class="pricing-section px-3 md:px-6 lg:px-12 py-12 overflow-hidden"
       >
         <div
-          class="max-w-7xl mx-auto py-12 px-3 md:px-6 lg:px-10 bg-tertiary rounded-4xl"
+          class="max-w-7xl mx-auto py-12 px-3 md:px-6 bg-tertiary rounded-4xl"
         >
           <!-- Heading -->
           <h2 class="text-center text-4xl font-semibold mb-16">
@@ -1198,7 +1260,7 @@
 
           <!-- Pricing Wrapper -->
           <div
-            class="pricing-wrapper bg-white rounded-[40px] shadow-sm overflow-hidden grid grid-cols-1 md:grid-cols-4"
+            class="pricing-wrapper overflow-hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
           >
             <!-- PLAN -->
             <div class="pricing-card">
@@ -1237,9 +1299,7 @@
                 <li>
                   <i class="fa-solid fa-check"></i> 1% fee per transaction
                 </li>
-                <li>
-                  <i class="fa-solid fa-check"></i> Access to business features
-                </li>
+                <li><i class="fa-solid fa-check"></i> Access to business</li>
                 <li><i class="fa-solid fa-check"></i> 50+ integrations</li>
                 <li><i class="fa-solid fa-check"></i> Advanced reporting</li>
                 <li>
@@ -1262,9 +1322,7 @@
                 <li>
                   <i class="fa-solid fa-check"></i> 1.5% fee per transaction
                 </li>
-                <li>
-                  <i class="fa-solid fa-check"></i> Access to business features
-                </li>
+                <li><i class="fa-solid fa-check"></i> Access to business</li>
                 <li><i class="fa-solid fa-check"></i> 100+ integrations</li>
                 <li><i class="fa-solid fa-check"></i> Advanced reporting</li>
                 <li>
@@ -1287,9 +1345,7 @@
                 <li>
                   <i class="fa-solid fa-check"></i> 2.5% fee per transaction
                 </li>
-                <li>
-                  <i class="fa-solid fa-check"></i> Access to business features
-                </li>
+                <li><i class="fa-solid fa-check"></i> Access to business</li>
                 <li><i class="fa-solid fa-check"></i> 200+ integrations</li>
                 <li><i class="fa-solid fa-check"></i> Advanced reporting</li>
                 <li>
@@ -1307,6 +1363,158 @@
             <a href="#" class="underline font-medium">Contact us</a>, if you
             need any other information.
           </p>
+        </div>
+      </section>
+
+      <!-- FAQ SECTION -->
+      <section class="py-24 px-3 md:px-6 lg:px-12 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+          <div class="faq-wrapper flex flex-wrap justify-center gap-8">
+            <!-- CARD -->
+            <div class="faq-card rotate-left light-card">
+              <div class="faq-inner">
+                <div class="faq-front">What is a payment gateway?</div>
+                <div class="faq-back">
+                  A payment gateway securely processes transactions between
+                  customers, merchants, and banks.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-card rotate-mid green-card">
+              <div class="faq-inner">
+                <div class="faq-front">How does a payment gateway work?</div>
+                <div class="faq-back">
+                  It encrypts payment details and routes them to banks for
+                  approval.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-card rotate-right soft-card">
+              <div class="faq-inner">
+                <div class="faq-front">Are payment gateways secure?</div>
+                <div class="faq-back">
+                  Yes, they use encryption, tokenization, and fraud detection
+                  systems.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-card rotate-none dark-card">
+              <div class="faq-inner">
+                <div class="faq-front text-white">
+                  How can I track my transactions?
+                </div>
+                <div class="faq-back text-white">
+                  Through real-time dashboards and transaction reports.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-card rotate-left white-card">
+              <div class="faq-inner">
+                <div class="faq-front">What currencies are supported?</div>
+                <div class="faq-back">
+                  Multiple global currencies including INR, USD, EUR, and more.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOG SECTION -->
+      <section class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+          <!-- Header -->
+          <div class="flex items-center justify-between mb-10">
+            <h2 class="text-4xl font-semibold">Our latest blog</h2>
+
+            <div class="flex gap-4">
+              <button class="blog-btn-prev nav-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+              <button class="blog-btn-next nav-btn">
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Viewport -->
+          <div class="blog-viewport">
+            <div class="blog-infinite-track">
+              <!-- Repeat cards (IMPORTANT for infinite feel) -->
+              <article class="blog-card">
+                <img
+                  src="https://images.unsplash.com/photo-1509395176047-4a66953fd231"
+                />
+                <span class="tag">Payment</span>
+                <h3>The Importance of PCI Compliance in Payment Gateways</h3>
+                <p>
+                  Neque porro quisquam est qui dolorem ipsum quia dolor sit
+                  amet...
+                </p>
+              </article>
+              <article class="blog-card">
+                <img
+                  src="https://images.unsplash.com/photo-1509395176047-4a66953fd231"
+                />
+                <span class="tag">Payment</span>
+                <h3>The Importance of PCI Compliance in Payment Gateways</h3>
+                <p>
+                  Neque porro quisquam est qui dolorem ipsum quia dolor sit
+                  amet...
+                </p>
+              </article>
+              <article class="blog-card">
+                <img
+                  src="https://images.unsplash.com/photo-1509395176047-4a66953fd231"
+                />
+                <span class="tag">Payment</span>
+                <h3>The Importance of PCI Compliance in Payment Gateways</h3>
+                <p>
+                  Neque porro quisquam est qui dolorem ipsum quia dolor sit
+                  amet...
+                </p>
+              </article>
+
+              <!-- DUPLICATES -->
+              <article class="blog-card">
+                <img
+                  src="https://images.unsplash.com/photo-1509395176047-4a66953fd231"
+                />
+                <span class="tag">Payment</span>
+                <h3>The Importance of PCI Compliance in Payment Gateways</h3>
+                <p>
+                  Neque porro quisquam est qui dolorem ipsum quia dolor sit
+                  amet...
+                </p>
+              </article>
+              <article class="blog-card">
+                <img
+                  src="https://images.unsplash.com/photo-1509395176047-4a66953fd231"
+                />
+                <span class="tag">Payment</span>
+                <h3>The Importance of PCI Compliance in Payment Gateways</h3>
+                <p>
+                  Neque porro quisquam est qui dolorem ipsum quia dolor sit
+                  amet...
+                </p>
+              </article>
+              <article class="blog-card">
+                <img
+                  src="https://images.unsplash.com/photo-1509395176047-4a66953fd231"
+                />
+                <span class="tag">Payment</span>
+                <h3>The Importance of PCI Compliance in Payment Gateways</h3>
+                <p>
+                  Neque porro quisquam est qui dolorem ipsum quia dolor sit
+                  amet...
+                </p>
+              </article>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1543,7 +1751,7 @@
       <button
         id="scrollIndicator"
         aria-label="Scroll to top"
-        class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary/80 backdrop-blur shadow-sm flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-50 cursor-pointer"
+        class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary backdrop-blur shadow-sm flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-50 cursor-pointer"
       >
         <svg class="absolute inset-0 -rotate-90" viewBox="0 0 100 100">
           <!-- Track -->
@@ -1571,7 +1779,7 @@
         </svg>
 
         <!-- Percentage -->
-        <span class="relative text-xs font-semibold text-white"
+        <span class="relative text-xs font-semibold text-fouthery"
           ><i class="fa-solid fa-angle-up"></i
         ></span>
       </button>
@@ -2262,7 +2470,7 @@
       gsap.from(".payment-content", {
         opacity: 0,
         y: 60,
-        duration: 1.2,
+        duration: 1.9,
         ease: "power3.out",
         scrollTrigger: {
           trigger: ".payment-section",
@@ -2387,98 +2595,116 @@
       );
     </script>
 
-    <!-- TESTIMONIAL SECTION GSAP ANIMATION -->
+    <!-- STEPS SECTION GSAP ANIMATION -->
     <script>
       gsap.registerPlugin(ScrollTrigger);
 
-      const slides = document.querySelectorAll(".testimonial-slide");
-      const dots = document.querySelectorAll(".dot");
-
-      let current = 0;
-      let autoTimer;
-      const isMobile = window.innerWidth < 768;
-
-      /* ENTRY ANIMATION */
-      gsap.from(".testimonial-wrapper", {
-        opacity: 0,
-        y: 40,
-        duration: 1,
-        ease: "power3.out",
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: ".testimonial-section",
-          start: "top 75%",
-          once: true,
+          trigger: ".steps-title",
+          start: "top 80%",
         },
       });
 
-      /* SLIDE ANIMATION */
-      function animateSlide(next) {
-        if (next === current) return;
+      tl.from(".steps-title", {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      })
 
-        const tl = gsap.timeline();
-
-        tl.to(slides[current], {
-          opacity: 0,
-          x: isMobile ? 0 : -40,
-          duration: 0.5,
-          ease: "power3.inOut",
-        });
-
-        tl.fromTo(
-          slides[next],
-          { opacity: 0, x: isMobile ? 0 : 40 },
+        .from(
+          ".step-item",
           {
-            opacity: 1,
-            x: 0,
+            x: -40,
+            opacity: 0,
             duration: 0.6,
+            stagger: 0.15,
             ease: "power3.out",
           },
-          "-=0.2",
+          "-=0.3",
+        )
+
+        .from(
+          ".green-box",
+          {
+            x: 60,
+            opacity: 0,
+            scale: 0.95,
+            duration: 0.8,
+            ease: "power3.out",
+          },
+          "-=0.6",
         );
+    </script>
 
-        slides[current].classList.remove("is-active");
-        dots[current].classList.remove("is-active");
+    <!-- FAQ SECTION GSAP ANIMATION -->
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
 
-        slides[next].classList.add("is-active");
-        dots[next].classList.add("is-active");
+      gsap.from(".faq-card", {
+        scrollTrigger: {
+          trigger: ".faq-wrapper",
+          start: "top 80%",
+        },
+        y: 60,
+        opacity: 0,
+        rotate: -5,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power3.out",
+      });
+    </script>
 
-        current = next;
+    <!--BLOG SECTION GSAP ANIMATION -->
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      const track = document.querySelector(".blog-infinite-track");
+      const cards = gsap.utils.toArray(".blog-card");
+      const gap = 24;
+      const cardWidth = cards[0].offsetWidth + gap;
+      const totalWidth = cardWidth * (cards.length / 2);
+
+      let currentX = 0;
+
+      // Infinite wrap modifier
+      const wrapX = gsap.utils.wrap(-totalWidth, 0);
+
+      gsap.set(track, { x: 0 });
+
+      // Scroll entrance
+      gsap.from(cards, {
+        scrollTrigger: {
+          trigger: ".blog-viewport",
+          start: "top 80%",
+        },
+        opacity: 0,
+        y: 60,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+
+      // Core move function
+      function moveSlider(direction = 1) {
+        currentX += direction * cardWidth;
+
+        gsap.to(track, {
+          x: currentX,
+          duration: 0.6,
+          ease: "power3.out",
+          modifiers: {
+            x: (x) => wrapX(parseFloat(x)) + "px",
+          },
+        });
       }
 
-      /* INFINITE */
-      function nextSlide() {
-        animateSlide((current + 1) % slides.length);
-      }
-
-      function prevSlide() {
-        animateSlide((current - 1 + slides.length) % slides.length);
-      }
-
-      /* AUTO SLIDE */
-      function startAuto() {
-        autoTimer = setInterval(nextSlide, 5000);
-      }
-
-      function stopAuto() {
-        clearInterval(autoTimer);
-      }
-
-      document
-        .querySelector(".testimonial-slider")
-        .addEventListener("mouseenter", stopAuto);
-
-      document
-        .querySelector(".testimonial-slider")
-        .addEventListener("mouseleave", startAuto);
-
-      startAuto();
-
-      /* DOT NAV */
-      dots.forEach((dot, index) => {
-        dot.addEventListener("click", () => {
-          stopAuto();
-          animateSlide(index);
-          startAuto();
+      // Optional auto-slide
+      gsap.ticker.add(() => {
+        currentX -= 0.3;
+        gsap.set(track, {
+          x: wrapX(currentX),
         });
       });
     </script>
