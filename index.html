@@ -405,14 +405,6 @@
         color: #6b7280;
       }
 
-      .btn-dark {
-        background: #000;
-        color: #fff;
-        padding: 18px 28px;
-        border-radius: 9999px;
-        width: 100%;
-      }
-
       .btn-green {
         background: #a1f26d;
         color: #000;
@@ -1349,7 +1341,7 @@
 
       <!-- STEPS SECTION -->
       <section
-        class="py-12 md:py-24 px-3 md:px-6 lg:px-12 bg-white overflow-hidden"
+        class="py-12 md:py-24 px-3 md:px-6 lg:px-12 max-w-7xl mx-auto bg-white overflow-hidden"
       >
         <div class="max-w-7xl mx-auto">
           <!-- Heading -->
@@ -1365,7 +1357,7 @@
             <!-- LEFT -->
             <div class="space-y-6 steps-list">
               <!-- Step -->
-              <div class="step-item flex items-center gap-4 pb-6 border-b">
+              <div class="step-item flex items-center gap-4 pb-6 border-b border-b-gray-300">
                 <div class="icon-box bg-lime-200">
                   <i class="fa-solid fa-globe"></i>
                 </div>
@@ -1378,7 +1370,7 @@
                 </div>
               </div>
 
-              <div class="step-item flex items-center gap-4 pb-6 border-b">
+              <div class="step-item flex items-center gap-4 pb-6 border-b border-b-gray-300">
                 <div class="icon-box">
                   <i class="fa-regular fa-id-card"></i>
                 </div>
@@ -1387,7 +1379,7 @@
                 </div>
               </div>
 
-              <div class="step-item flex items-center gap-4 pb-6 border-b">
+              <div class="step-item flex items-center gap-4 pb-6 border-b border-b-gray-300">
                 <div class="icon-box">
                   <i class="fa-solid fa-layer-group"></i>
                 </div>
@@ -1396,7 +1388,7 @@
                 </div>
               </div>
 
-              <div class="step-item flex items-center gap-4 pb-6 border-b">
+              <div class="step-item flex items-center gap-4 pb-6 border-b border-b-gray-300">
                 <div class="icon-box">
                   <i class="fa-solid fa-paper-plane"></i>
                 </div>
@@ -1430,7 +1422,7 @@
 
       <!-- BLOG SECTION -->
       <section
-        class="py-16 px-3 md:px-6 lg:px-12 max-w-7xl mx-auto blog-section"
+        class="py-16 px-3 md:px-6 lg:px-12 max-w-7xl mx-auto blog-section bg-secondary"
       >
         <h2 class="text-3xl font-semibold mb-10 blog-title">Our latest blog</h2>
 
@@ -1438,17 +1430,17 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 blog-featured">
           <!-- Featured Card 1-->
           <div
-            class="blog-card bg-white border border-gray-400/50 rounded-2xl p-4 flex flex-col md:flex-row gap-6"
+            class="blog-card bg-white border border-gray-400/20 rounded-2xl p-4 flex flex-col lg:flex-row gap-6"
           >
-            <div class="blog-img w-full md:w-1/2 overflow-hidden rounded-xl">
+            <div class="blog-img w-full lg:w-1/2 overflow-hidden rounded-xl">
               <img
                 src="./src/assets/b1.webp"
                 alt="b1"
-                class="w-full h-full object-cover"
+                class="w-full h-75 lg:h-full object-cover"
               />
             </div>
 
-            <div class="flex flex-col justify-center w-full md:w-1/2">
+            <div class="flex flex-col justify-center w-full lg:w-1/2">
               <span
                 class="tag-pill inline-block bg-primary text-green-700 text-xs px-3 py-1 rounded-full w-fit mb-3"
               >
@@ -1467,17 +1459,17 @@
 
           <!-- Featured Card 2-->
           <div
-            class="blog-card bg-white border border-gray-400/50 rounded-2xl p-4 flex flex-col md:flex-row gap-6"
+            class="blog-card bg-white border border-gray-400/20 rounded-2xl p-4 flex flex-col lg:flex-row gap-6"
           >
-            <div class="blog-img w-full md:w-1/2 overflow-hidden rounded-xl">
+            <div class="blog-img w-full lg:w-1/2 overflow-hidden rounded-xl">
               <img
                 src="./src/assets/b2.webp"
                 alt="b2"
-                class="w-full h-full object-cover"
+                class="w-full h-75 lg:h-full object-cover"
               />
             </div>
 
-            <div class="flex flex-col justify-center w-full md:w-1/2">
+            <div class="flex flex-col justify-center w-full lg:w-1/2">
               <span
                 class="tag-pill inline-block bg-primary text-green-700 text-xs px-3 py-1 rounded-full w-fit mb-3"
               >
@@ -1499,18 +1491,18 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 blog-grid">
           <!-- Card 1-->
           <div
-            class="blog-card bg-white border border-gray-400/50 rounded-2xl overflow-hidden"
+            class="blog-card bg-white border border-gray-400/20 rounded-2xl overflow-hidden p-4 flex flex-col gap-4"
           >
-            <div class="blog-img overflow-hidden">
-              <img src="./src/assets/b3.webp" alt="b3" />
+            <div class="blog-img rounded-2xl overflow-hidden ">
+              <img class="rounded-2xl" src="./src/assets/b3.webp" alt="b3" />
               <span
-                class="tag-pill absolute top-2 right-2 m-4 bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full"
+                class="tag-pill absolute top-6 right-6 m-4 bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full"
               >
                 Transactions
               </span>
             </div>
 
-            <div class="p-6">
+            <div class="">
               <h4 class="font-semibold mb-2">
                 What to Look for When Comparing Payment Gateway Providers
               </h4>
@@ -1523,10 +1515,10 @@
 
           <!-- Card 2-->
           <div
-            class="blog-card bg-white border border-gray-400/50 rounded-2xl overflow-hidden"
+            class="blog-card bg-white border border-gray-400/20 rounded-2xl p-4 flex flex-col gap-4 overflow-hidden"
           >
-            <div class="blog-img overflow-hidden">
-              <img src="./src/assets/b4.webp" alt="b4" />
+            <div class="blog-img rounded-2xl overflow-hidden">
+              <img class="rounded-2xl" src="./src/assets/b4.webp" alt="b4" />
               <span
                 class="tag-pill absolute top-2 right-2 m-4 bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full"
               >
@@ -1534,7 +1526,7 @@
               </span>
             </div>
 
-            <div class="p-6">
+            <div class="">
               <h4 class="font-semibold mb-2">
                 How Payment Gateways Handle Refunds and Chargebacks
               </h4>
@@ -1547,10 +1539,10 @@
 
           <!-- Card 3-->
           <div
-            class="blog-card bg-white border border-gray-400/50 rounded-2xl overflow-hidden"
+            class="blog-card bg-white border border-gray-400/20 rounded-2xl overflow-hidden p-4 flex flex-col gap-4"
           >
-            <div class="blog-img overflow-hidden">
-              <img src="./src/assets/b5.webp" alt="b5" />
+            <div class="blog-img rounded-2xl overflow-hidden">
+              <img class="rounded-2xl" src="./src/assets/b5.webp" alt="b5" />
               <span
                 class="tag-pill absolute top-2 right-2 m-4 bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full"
               >
@@ -1558,7 +1550,7 @@
               </span>
             </div>
 
-            <div class="p-6">
+            <div class="">
               <h4 class="font-semibold mb-2">
                 The Importance of PCI Compliance in Payment Gateways
               </h4>
@@ -1615,10 +1607,12 @@
                 <li><i class="fa-solid fa-check"></i> Audit log and notes</li>
                 <li><i class="fa-solid fa-check"></i> Basic chat support</li>
               </ul>
-              <div class="text-center pt-6">
-                <button class="btn-dark">
-                  <a href="./404.html">Select Plan</a>
-                </button>
+              <div class="text-center mt-6">
+                <a
+                  class="block p-5 w-full bg-black rounded-full text-white"
+                  href="./404.html"
+                  >Select Plan</a
+                >
               </div>
             </div>
 
@@ -1643,10 +1637,12 @@
                 <li><i class="fa-solid fa-check"></i> Audit log and notes</li>
                 <li><i class="fa-solid fa-check"></i> Priority chat support</li>
               </ul>
-              <div class="text-center pt-6">
-                <button class="btn-green">
-                  <a href="./404.html">Select Plan</a>
-                </button>
+              <div class="text-center mt-6">
+                <a
+                  class="block p-5 w-full bg-primary rounded-full text-black"
+                  href="./404.html"
+                  >Select Plan</a
+                >
               </div>
             </div>
 
@@ -1671,10 +1667,12 @@
                 <li><i class="fa-solid fa-check"></i> Audit log and notes</li>
                 <li><i class="fa-solid fa-check"></i> Priority chat support</li>
               </ul>
-              <div class="text-center pt-6">
-                <button class="btn-dark">
-                  <a href="./404.html">Select Plan</a>
-                </button>
+              <div class="text-center mt-6">
+                <a
+                  class="block p-5 w-full bg-black rounded-full text-white"
+                  href="./404.html"
+                  >Select Plan</a
+                >
               </div>
             </div>
 
@@ -1699,10 +1697,12 @@
                 <li><i class="fa-solid fa-check"></i> Audit log and notes</li>
                 <li><i class="fa-solid fa-check"></i> Priority chat support</li>
               </ul>
-              <div class="text-center pt-6">
-                <button class="btn-dark">
-                  <a href="./404.html">Select Plan</a>
-                </button>
+              <div class="text-center mt-6">
+                <a
+                  class="block p-5 w-full bg-black rounded-full text-white"
+                  href="./404.html"
+                  >Select Plan</a
+                >
               </div>
             </div>
           </div>
@@ -2889,33 +2889,32 @@
     <!-- BLOG SECTION GSAP ANIMATION -->
     <script>
       gsap.registerPlugin(ScrollTrigger);
-        // section title
-        gsap.from(".blog-title", {
-          opacity: 0,
-          y: 30,
-          duration: 0.7,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: ".blog-title",
-            start: "top 85%",
-            once: true,
-          },
-        });
+      // section title
+      gsap.from(".blog-title", {
+        opacity: 0,
+        y: 30,
+        duration: 0.7,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".blog-title",
+          start: "top 85%",
+          once: true,
+        },
+      });
 
-        // cards animation
-        gsap.from(".blog-card", {
-          opacity: 0,
-          y: 50,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: ".blog-section",
-            start: "top 80%",
-            scrub: true,
-            once: true,
-          },
-        });
+      // cards animation
+      gsap.from(".blog-card", {
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        stagger: 0.45,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".blog-section",
+          start: "top 80%",
+          once: true,
+        },
+      });
     </script>
 
     <!-- FOOTER SECTION GSAP ANIMATION -->
