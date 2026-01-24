@@ -377,8 +377,20 @@
   .h-75 {
     height: calc(var(--spacing) * 75);
   }
+  .h-150 {
+    height: calc(var(--spacing) * 150);
+  }
   .h-\[300px\] {
     height: 300px;
+  }
+  .h-\[400px\] {
+    height: 400px;
+  }
+  .h-\[600\] {
+    height: 600;
+  }
+  .h-\[600px\] {
+    height: 600px;
   }
   .h-full {
     height: 100%;
